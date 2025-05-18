@@ -1,0 +1,18 @@
+[
+    {
+      "username": "admin",
+      "password": "admin123",
+      "role": "Administrator"
+    },
+    {
+      "username": "petugas1",
+      "password": "damkar2024",
+      "role": "Petugas"
+    },
+    {
+      "username": "masyarakat",
+      "password": "masyarakat123",
+      "role": "masyarkat"
+    }
+  ]
+  
