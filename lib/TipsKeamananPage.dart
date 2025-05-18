@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -19,11 +18,11 @@ class _TipsKeamananPageState extends State<TipsKeamananPage> {
 
   Future<void> loadTipsFromJson() async {
     final String response = await rootBundle.loadString(
-      'assets/data/tips_keamanan.json',
+      'assets/TipsKeamanan.json',
     );
-    final data = json.decode(response);
+    final Map<String, dynamic> data = json.decode(response);
     setState(() {
-      tips = data;
+      tips = data['tips_keamanan'];
     });
   }
 
@@ -39,33 +38,12 @@ class _TipsKeamananPageState extends State<TipsKeamananPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
         title: Text('Tips Keamanan Damkar'),
         backgroundColor: Colors.red,
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(color: Colors.red),
-              child: Text(
-                'Menu Damkar',
-                style: TextStyle(color: Colors.white, fontSize: 24),
-              ),
-            ),
-            _buildMenuItem(Icons.shield, "Tips Keamanan", () {
-              Navigator.pop(context);
-            }),
-            _buildMenuItem(Icons.school, "Edukasi Bencana", () {
-              Navigator.pop(context);
-              Navigator.pushNamed(context, '/edukasi_bencana');
-            }),
-            _buildMenuItem(Icons.person, "Profil Saya", () {
-              Navigator.pop(context);
-              Navigator.pushNamed(context, '/profil_saya');
-            }),
-          ],
-        ),
       ),
       body:
           tips.isEmpty
@@ -74,16 +52,24 @@ class _TipsKeamananPageState extends State<TipsKeamananPage> {
                 padding: EdgeInsets.all(12),
                 itemCount: tips.length,
                 itemBuilder: (context, index) {
+                  final item = tips[index];
                   return Card(
                     elevation: 3,
                     margin: EdgeInsets.symmetric(vertical: 8),
                     child: ListTile(
                       leading: Icon(Icons.fire_extinguisher, color: Colors.red),
                       title: Text(
-                        tips[index]["judul"],
+                        item['judul'],
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      subtitle: Text(tips[index]["deskripsi"]),
+                      subtitle: Text(item['deskripsi']),
+                      trailing: IconButton(
+                        icon: Icon(Icons.play_circle_fill, color: Colors.red),
+                        onPressed: () {
+                          final url = item['link_video'];
+                          // Bisa tambahkan logic buka url YouTube pakai url_launcher
+                        },
+                      ),
                     ),
                   );
                 },

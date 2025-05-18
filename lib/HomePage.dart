@@ -231,7 +231,6 @@ class _HomePageState extends State<HomePage> {
               childAspectRatio: 1.1,
               children: [
                 _buildMenuItem(Icons.shield, "Tips Keamanan", () {
-                  Navigator.pop(context); // tutup drawer dulu
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => TipsKeamananPage()),

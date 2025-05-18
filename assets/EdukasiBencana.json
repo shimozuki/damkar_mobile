@@ -1,0 +1,17 @@
+{
+    "edukasi_bencana": [
+      {
+        "id": 1,
+        "judul": "Pengenalan Gempa Bumi",
+        "deskripsi": "Video edukasi tentang bagaimana gempa bumi terjadi dan cara bertindak saat gempa.",
+        "link_video": "https://www.youtube.com/watch?v=example3"
+      },
+      {
+        "id": 2,
+        "judul": "Panduan Evakuasi Tsunami",
+        "deskripsi": "Langkah-langkah evakuasi yang benar jika terjadi tsunami.",
+        "link_video": "https://www.youtube.com/watch?v=example4"
+      }
+    ]
+  }
+  
