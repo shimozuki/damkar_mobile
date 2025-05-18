@@ -3,6 +3,7 @@ import 'package:damkar/TipsKeamananPage.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -30,6 +31,17 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  void _showToast(String message, {bool success = true}) {
+    Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      backgroundColor: success ? Colors.green : Colors.red,
+      textColor: Colors.white,
+      fontSize: 14.0,
+    );
+  }
+
   Future<void> _ambilLokasi() async {
     final permission = await Geolocator.requestPermission();
     if (permission == LocationPermission.denied ||
@@ -49,6 +61,10 @@ class _HomePageState extends State<HomePage> {
     await _ambilLokasi();
     if (_deskripsiController.text.isEmpty || _foto == null) {
       setState(() => _status = 'Lengkapi semua data sebelum melapor.');
+      _showToast(
+        'Gagal: Lengkapi data sebelum mengirim laporan.',
+        success: false,
+      );
       return;
     }
 
@@ -62,6 +78,8 @@ class _HomePageState extends State<HomePage> {
     };
 
     setState(() => _status = 'Laporan berhasil dikirim: \n$data');
+    _showToast('Laporan berhasil dikirim!');
+
     _deskripsiController.clear();
     _foto = null;
   }
