@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:damkar/TipsKeamananPage.dart';
+import 'package:damkar/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
@@ -255,7 +256,22 @@ class _HomePageState extends State<HomePage> {
                   );
                 }),
                 _buildMenuItem(Icons.school, "Edukasi Bencana", () {}),
-                _buildMenuItem(Icons.person, "Profil Saya", () {}),
+                _buildMenuItem(Icons.person, "Profil Saya", () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) => ProfilePage(
+                            user: {
+                              "name": "Nama Saya",
+                              "nik": "1234567890",
+                              "username": "user",
+                              "role": "masyarakat",
+                            },
+                          ),
+                    ),
+                  );
+                }),
                 _buildMenuItem(
                   Icons.location_on,
                   "Laporan Sekitar Saya",

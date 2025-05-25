@@ -1,18 +1,26 @@
-[
+
+  [
     {
+      "name": "Admin Damkar",
+      "nik": "1234567890123456",
       "username": "admin",
       "password": "admin123",
       "role": "Administrator"
     },
     {
+      "name": "Petugas 1",
+      "nik": "9876543210123456",
       "username": "petugas1",
       "password": "damkar2024",
       "role": "Petugas"
     },
     {
+      "name": "Warga Umum",
+      "nik": "1111222233334444",
       "username": "masyarakat",
       "password": "masyarakat123",
-      "role": "masyarkat"
+      "role": "masyarakat"
     }
   ]
+  
   

@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:damkar/HomePage.dart';
+import 'package:damkar/register_page.dart'; // pastikan file ini ada
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -14,6 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
+  bool _obscurePassword = true;
   String _errorMessage = '';
 
   Future<List<Map<String, dynamic>>> _loadUsers() async {
@@ -39,7 +41,6 @@ class _LoginPageState extends State<LoginPage> {
         SnackBar(content: Text('Selamat datang, ${user['role']}')),
       );
 
-      // Redirect ke HomePage setelah sedikit delay agar snackbar tampil
       Future.delayed(const Duration(milliseconds: 500), () {
         Navigator.pushReplacement(
           context,
@@ -81,10 +82,22 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 16),
                 TextField(
                   controller: _passwordController,
-                  obscureText: true,
-                  decoration: const InputDecoration(
+                  obscureText: _obscurePassword,
+                  decoration: InputDecoration(
                     labelText: 'Password',
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _obscurePassword
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _obscurePassword = !_obscurePassword;
+                        });
+                      },
+                    ),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -107,6 +120,18 @@ class _LoginPageState extends State<LoginPage> {
                     'LOGIN',
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
+                ),
+                const SizedBox(height: 12),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const RegisterPage(),
+                      ),
+                    );
+                  },
+                  child: const Text("Belum punya akun? Daftar di sini"),
                 ),
               ],
             ),
