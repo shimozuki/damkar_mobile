@@ -8,7 +8,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // Sama dengan halaman login & register
+      backgroundColor: const Color(0xFF121015), // latar belakang gelap
       appBar: AppBar(
         title: const Text("Profil Pengguna"),
         backgroundColor: Colors.red,
@@ -22,20 +22,15 @@ class ProfilePage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.red.shade50,
+                color: const Color(0xFF1E1C22),
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: Colors.red.shade100),
               ),
               child: Column(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 45,
                     backgroundColor: Colors.red,
-                    child: const Icon(
-                      Icons.person,
-                      size: 50,
-                      color: Colors.white,
-                    ),
+                    child: Icon(Icons.person, size: 50, color: Colors.white),
                   ),
                   const SizedBox(height: 12),
                   Text(
@@ -43,12 +38,12 @@ class ProfilePage extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black87,
+                      color: Colors.white,
                     ),
                   ),
                   Text(
                     user['role'] ?? '-',
-                    style: const TextStyle(fontSize: 16, color: Colors.black54),
+                    style: const TextStyle(fontSize: 16, color: Colors.white70),
                   ),
                 ],
               ),
@@ -68,22 +63,21 @@ class ProfilePage extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       decoration: BoxDecoration(
-        color: Colors.red.shade50,
+        color: const Color(0xFF1E1C22),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.red.shade100),
       ),
       child: Row(
         children: [
-          Icon(icon, color: Colors.red),
+          Icon(icon, color: Colors.redAccent),
           const SizedBox(width: 16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(label, style: const TextStyle(color: Colors.black54)),
+                Text(label, style: const TextStyle(color: Colors.white70)),
                 Text(
                   value ?? '-',
-                  style: const TextStyle(fontSize: 16, color: Colors.black87),
+                  style: const TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ],
             ),
