@@ -37,6 +37,7 @@ dependencies:
   geolocator: ^14.0.0
   image_picker: ^1.1.2
   fluttertoast: ^8.2.12
+  youtube_player_flutter: ^9.1.1
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +66,8 @@ flutter:
     - assets/logo_damkar.png
     - assets/users.json
     - assets/TipsKeamanan.json
+    - assets/edukasi_bencana.json
+    - assets/laporan_sekitar_saya.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
