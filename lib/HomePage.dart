@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:damkar/EdukasiBencanaPage.dart';
+import 'package:damkar/LaporanSekitarPage.dart';
 import 'package:damkar/TipsKeamananPage.dart';
 import 'package:damkar/profile_page.dart';
 import 'package:flutter/material.dart';
@@ -255,7 +257,14 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(builder: (context) => TipsKeamananPage()),
                   );
                 }),
-                _buildMenuItem(Icons.school, "Edukasi Bencana", () {}),
+                _buildMenuItem(Icons.school, "Edukasi Bencana", () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EdukasiBencanaPage(),
+                    ),
+                  );
+                }),
                 _buildMenuItem(Icons.person, "Profil Saya", () {
                   Navigator.push(
                     context,
@@ -272,11 +281,14 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 }),
-                _buildMenuItem(
-                  Icons.location_on,
-                  "Laporan Sekitar Saya",
-                  () {},
-                ),
+                _buildMenuItem(Icons.location_on, "Laporan Sekitar Saya", () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LaporanSekitarPage(),
+                    ),
+                  );
+                }),
               ],
             ),
           ],

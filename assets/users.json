@@ -20,6 +20,13 @@
       "username": "masyarakat",
       "password": "masyarakat123",
       "role": "masyarakat"
+    },
+    {
+      "name": "Samitrean",
+      "nik": "1111222233334445",
+      "username": "samitrean",
+      "password": "password123",
+      "role": "masyarakat"
     }
   ]
   
